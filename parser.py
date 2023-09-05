@@ -14,7 +14,7 @@ def parse_arguments(is_training: bool = True):
     parser.add_argument("--min_images_per_class", type=int, default=10, help="_")
     # Model parameters
     parser.add_argument("--backbone", type=str, default="ResNet18",
-                        choices=["VGG16", "ResNet18", "ResNet50", "ResNet101", "ResNet152"], help="_")
+                        choices=["VGG16", "ResNet18", "ResNet50", "ResNet101", "ResNet152", "wide_resnet50_2",          "densenet121"], help="_")
     parser.add_argument("--fc_output_dim", type=int, default=512,
                         help="Output dimension of final fully connected layer")
     # Training parameters
@@ -34,6 +34,8 @@ def parse_arguments(is_training: bool = True):
     parser.add_argument("--hue", type=float, default=0.5, help="_")
     parser.add_argument("--saturation", type=float, default=0.7, help="_")
     parser.add_argument("--random_resized_crop", type=float, default=0.5, help="_")
+    parser.add_argument("--degrees", type=float, default=0, help="_")
+    parser.add_argument("--use_horizontal_flip", type=bool, default=False, help="_")
     # Validation / test parameters
     parser.add_argument("--infer_batch_size", type=int, default=16,
                         help="Batch size for inference (validating and testing)")
