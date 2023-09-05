@@ -1,4 +1,3 @@
-
 dependencies = ['torch', 'torchvision']
 
 import torch
