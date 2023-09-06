@@ -46,6 +46,14 @@ You can also speed up your training with Automatic Mixed Precision (note that al
 
 Run `$ python3 train.py -h` to have a look at all the hyperparameters that you can change. You will find all hyperparameters mentioned in the paper.
 
+
+## If you would like to train with sf-xs and to run the train for augmentation
+
+`$ python3 train.py --dataset_folder path/to/sf-xs/`
+`$ python3 augmentation_train.py --dataset_folder path/to/sf-xs/`
+
+## To change the optimizer
+
 #### Dataset size and lightweight version
 
 The SF-XL dataset is about 1 TB.
