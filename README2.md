@@ -48,9 +48,11 @@ SF-XS val  | 56.4 / 69.4                      | 56.2 / 69.3
 SF-XS test | 20.9 / 32.6                      | 19.6 / 32.5 
 Tokyo-XS   | 34.0 / 52.4                      | 33.3 / 53.3 
 
+![photo_2023-09-05 14 44 44](https://github.com/SarinaTakalloo/VG_MLDL/assets/98056551/fb381428-e48a-48cf-a095-8c07cd5707dd)
+
+![photo_2023-09-05 14 44 42](https://github.com/SarinaTakalloo/VG_MLDL/assets/98056551/328a0279-9a8a-476a-8d40-eaec550b3495)
 
 
-![alt text](http://url/to/img.png)
 
 Our tests and pre-trained models are available at this link:
 
