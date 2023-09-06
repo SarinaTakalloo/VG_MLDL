@@ -14,6 +14,8 @@ CHANNELS_NUM_IN_LAST_CONV = {
     "ResNet101": 2048,
     "ResNet152": 2048,
     "VGG16": 512,
+    "wide_resnet50_2": 2048,
+    "densenet121" : 1024 
 }
 
 
@@ -71,6 +73,26 @@ def get_backbone(backbone_name : str) -> Tuple[torch.nn.Module, int]:
             for p in layer.parameters():
                 p.requires_grad = False
         logging.debug("Train last layers of the VGG-16, freeze the previous ones")
+        
+    elif backbone_name == "wide_resnet50_2":
+        layers = list(backbone.children())[:-2]  # Remove avg pooling and FC layer
+        for layer in layers[:-2]:  # Freeze layers before layer3
+            for p in layer.parameters():
+                p.requires_grad = False
+        logging.debug("Train only layer3 and layer4 of the wide_resnet50_2, freeze the previous ones")
+        
+    elif backbone_name == "densenet121":
+        # Get the features block
+        features = list(backbone.children())[0]  
+        # Freeze all layers before denseblock3
+        for name, module in features.named_children():
+            if name != "denseblock3" and name != "transition3" and name != "denseblock4":
+                for p in module.parameters():
+                    p.requires_grad = False
+        logging.debug("Train only denseblock3, transition3, and denseblock4 of the densenet121, freeze the previous")
+        # Define layers
+        layers = list(features.children())
+        
     
     backbone = torch.nn.Sequential(*layers)
     
